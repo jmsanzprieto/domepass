@@ -1,0 +1,32 @@
+[
+    {
+        "id_servicio": 1,
+        "id_usuario": 1,
+        "nombre_servicio": "Outlook",
+        "pass_servicio": "$2b$12$dJdT/r0LpLZ58tgrLzY73eF.XmOHRm2CKmVpMBvvLFv44l5/HK5hu"
+    },
+    {
+        "id_servicio": 2,
+        "id_usuario": 1,
+        "nombre_servicio": "Gmail",
+        "pass_servicio": "$2b$12$IBZrLg8Abx6rsb6gHJUZbuJ4PUhnODoBTrHJET6gLLQqZswMkcuw2"
+    },
+    {
+        "id_servicio": 3,
+        "id_usuario": 1,
+        "nombre_servicio": "Gmail",
+        "pass_servicio": "$2b$12$PwXrb6EhXPA4fXcsDONpx.ryUYMPJSBZgtIM.O2RtYaawEvRZJF32"
+    },
+    {
+        "id_servicio": 4,
+        "id_usuario": 2,
+        "nombre_servicio": "Gmail",
+        "pass_servicio": "$2b$12$lnGeGNhpew29TNa/CnsNkOKgCoLtdMNlYu6TdLqby7JtP2yArH.CK"
+    },
+    {
+        "id_servicio": 5,
+        "id_usuario": 2,
+        "nombre_servicio": "Gmail",
+        "pass_servicio": "$2b$12$ogDyN0cSX99Lev4ek0IiYuMkO/hCooCNERSytqm6qFQrOh1m1CnlC"
+    }
+]

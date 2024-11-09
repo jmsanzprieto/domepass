@@ -7,13 +7,7 @@ from typing import Optional
 from fastapi.security import OAuth2PasswordBearer
 from utils import load_users,save_user_crud, get_user_by_id, verify_jwt_token
 
-
-# USERS_FILE = Path("users.json")
-# SECRET_KEY = "mi_secreto_jwt"  # Cambia esta clave a algo más seguro
-
 router = APIRouter()
-
-
 
 @router.get("/usuarios")
 async def get_users(token: str = Depends(verify_jwt_token)):

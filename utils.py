@@ -2,11 +2,13 @@ import json
 from fastapi import APIRouter, HTTPException, Depends, Header
 from datetime import datetime, timedelta
 import bcrypt
+from typing import List
 import jwt
 from pathlib import Path
 from fastapi.security import OAuth2PasswordBearer
 
 USERS_FILE = Path("users.json")
+SERVICES_FILE = Path("services.json")
 SECRET_KEY = "mi_secreto_jwt"  # Cambia esta clave a algo más seguro
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -71,3 +73,28 @@ def verify_jwt_token(token: str = Depends(oauth2_scheme)):
         raise HTTPException(status_code=401, detail="El token ha expirado.")
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Token inválido.")
+
+
+# Cargar los servicios desde el archivo JSON
+def load_services() -> List[dict]:
+    """Carga los servicios desde el archivo services.json"""
+    if SERVICES_FILE.exists():
+        with open(SERVICES_FILE, "r", encoding="utf-8") as file:
+            return json.load(file)
+    else:
+        # Si el archivo no existe, retornamos una lista vacía
+        return []
+
+# Guardar los servicios en el archivo JSON
+def save_services(services: List[dict]) -> None:
+    """Guarda los servicios en el archivo services.json"""
+    with open(SERVICES_FILE, "w", encoding="utf-8") as file:
+        json.dump(services, file, ensure_ascii=False, indent=4)
+
+
+# Función para generar un nuevo ID único para cada servicio
+def get_next_service_id(services: List[dict]) -> int:
+    """Genera un nuevo ID para el servicio basado en el ID máximo existente."""
+    if services:
+        return max(service["id_servicio"] for service in services) + 1
+    return 1

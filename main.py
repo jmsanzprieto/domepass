@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from auth import router as auth_router  # Importamos las rutas de auth
 from crud_user import router as crud_user_router  # Importamos las rutas de crud_user
+from services_crud import router as services_crud_router  # Importamos las rutas de crud_user
 
 app = FastAPI()
 
@@ -10,3 +11,8 @@ app.include_router(auth_router)
 
 # Incluir las rutas de CRUD de usuarios
 app.include_router(crud_user_router)
+
+# Incluir las rutas de CRUD de servicios
+app.include_router(services_crud_router)
+
+
